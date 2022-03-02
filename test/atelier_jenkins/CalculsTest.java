@@ -1,5 +1,5 @@
 
-package test.atelier_jenkins;
+package atelier_jenkins;
 
 import main.java.com.atelier_jenkins.Calculs;
 
@@ -44,7 +44,7 @@ class CalculsTest {
 	@Test
 	void testMultiplier()
 	{
-		if(c1.multiplier() != 2)
+		if(c1.multiplier() != 9)
 		{
 			fail("Methode multiplier non conforme 2*1=2 ne fonctionne pas.");
 		}

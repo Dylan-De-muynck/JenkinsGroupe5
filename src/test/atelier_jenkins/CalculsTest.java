@@ -3,14 +3,11 @@ package test.atelier_jenkins;
 
 
 
-
 import static org.junit.jupiter.api.Assertions.*;
-
-import java.awt.desktop.SystemEventListener;
 
 import main.java.com.atelier_jenkins.Calculs;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.testng.annotations.Test;
 
 /**
  * 
@@ -73,27 +70,26 @@ class CalculsTest {
 	 */
 	@Test
 	void testDiviser() {
-		if(c2.diviser() != 0)
+		if(c1.diviser() != 0)
 		{
 			fail("Methode diviser non conforme 1 / 2 = 0 ne fonctionne pas.");
 		}
-		
-		assertEquals(c2.diviser(), 0);
+
+		assertEquals(c1.diviser(), 0);
 	}
 
 	/**
 	 * Test method for {@link Calculs#soustraire()}.
 	 */
-	/*@Test
+	@Test
 	void testSoustraire() {
-		if(c3.soustraire() != -1)
+		if(c1.soustraire() != -1)
 		{
 			fail("Methode soustraire non conforme 1-2 = -1 ne fonctionne pas.");
-			
 		}
-		
 
-		assertEquals(c3.soustraire(), -1);
-	}*/
+
+		assertEquals(c1.soustraire(), -1);
+	}
 
 }

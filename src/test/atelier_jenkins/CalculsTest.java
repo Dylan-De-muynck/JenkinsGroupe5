@@ -9,10 +9,6 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.BeforeEach;
 
-
-import static org.junit.jupiter.api.Assertions.*;
-
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 /**
@@ -45,10 +41,10 @@ class CalculsTest {
 	/**
 	 * Test method for {@link Calculs#multiplier()}.
 	 */
-	@org.junit.jupiter.api.Test
+	@Test
 	void testMultiplier()
 	{
-		if(c1.multiplier() != 8)
+		if(c1.multiplier() != 2)
 		{
 			fail("Methode multiplier non conforme 2*1=2 ne fonctionne pas.");
 		}
@@ -60,7 +56,7 @@ class CalculsTest {
 	/**
 	 * Test method for {@link Calculs#additionner()}.
 	 */
-	@org.junit.jupiter.api.Test
+	@Test
 	void testAdditionner() {
 		if(c1.additionner() != 3)
 		{
@@ -73,7 +69,7 @@ class CalculsTest {
 	/**
 	 * Test method for {@link Calculs#diviser()}.
 	 */
-	@org.junit.jupiter.api.Test
+	@Test
 	void testDiviser() {
 		if(c1.diviser() != 0)
 		{

@@ -22,8 +22,8 @@ import org.junit.jupiter.api.Test;
 class CalculsTest {
 
 	private Calculs c1 = null;
-	private Calculs c2 = null;
-	private Calculs c3 = null;
+	//private Calculs c2 = null;
+	//private Calculs c3 = null;
 	
 	/**
 	 * Initialise les valeurs avant chaque test 

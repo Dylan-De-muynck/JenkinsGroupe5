@@ -31,14 +31,30 @@ class CalculsTest2 {
     static Stream<Arguments> chargerJeuDeTest() throws Throwable 
     {
         return Stream.of(
+            Arguments.of(2,2,4), // appellera : testAdditioner(2,2,4)
+            Arguments.of(6,6,12),
+            Arguments.of(3,2,5)
+        );
+    }
+    static Stream<Arguments> chargerJeuDeTest2() throws Throwable 
+    {
+        return Stream.of(
             Arguments.of(2,2,4), // appellera : testMultiplier(2,2,4)
             Arguments.of(6,6,36),
             Arguments.of(3,2,6)
         );
     }
+    static Stream<Arguments> chargerJeuDeTest3() throws Throwable 
+    {
+        return Stream.of(
+            Arguments.of(2,2,1), // appellera : testDiviser(2,2,4)
+            Arguments.of(6,6,1),
+            Arguments.of(6,2,3)
+        );
+    }
 
 	@ParameterizedTest(name="Multiplication numéro {index}: nombre1={0}, nombre2={1}, résultat attendu = {2}")
-	@MethodSource("chargerJeuDeTest")
+	@MethodSource("chargerJeuDeTest2")
 	void testMultiplier(int firstNumber, int secondNumber, int expectedResult) 
 	{
 		// Partie paramétrée
@@ -62,7 +78,7 @@ class CalculsTest2 {
 	        assertNull(n);
 	}
 	@ParameterizedTest(name="Division numéro {index}: nombre1={0}, nombre2={1}, résultat attendu = {2}")
-	@MethodSource("chargerJeuDeTest")
+	@MethodSource("chargerJeuDeTest3")
 	void testDiviser(int firstNumber, int secondNumber, int expectedResult) 
 	{
 		// Partie paramétrée

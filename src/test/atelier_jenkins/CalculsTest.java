@@ -1,5 +1,6 @@
 
-package test.java.com.atelier_jenkins;
+package test.atelier_jenkins;
+
 
 
 

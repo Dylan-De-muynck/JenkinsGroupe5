@@ -3,14 +3,29 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Insert title here</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 	<link rel="stylesheet"  href="../css/styles.css" >
 </head>
 
 <body>
+<div class="container">
+	<nav>
+		<div class="nav-wrapper">
+			<ul>
+				<li><a href="/">Home</a></li>
+				<li><a href="/products" data-th-href="@{ products }">Liste des produits</a></li>
+			</ul>
+			<ul id="nav-mobile" class="right hide-med-and-down">
+				<li><a class="button button-primary" href="/logout">Se déconnecter</a></li>
+			</ul>
+		</div>
+	</nav>
 	<h1>Atelier Jenkins - Groupe 5 - Liste des produits</h1>
 
 	<span>Contrat cadre du groupe client margeant à <span data-th-text="${ Margin }"></span> % pour le client connecté <span data-th-text="${ Customer }"></span>.</span><br><br>
-<table>
+	
+	<table>
 
 	<thead>
 	<tr>
@@ -23,15 +38,16 @@
 
 	</tr>
 	</thead>
-
-	<tr data-th-each="p : ${ ProductList }">
-		<td data-th-text="${ p.name }"></td>
-		<td data-th-text="${ p.price }"></td>
-		<td data-th-text="${ p.updatedPrice }"></td>
-	</tr>
-
+	<tbody>
+		<tr data-th-each="p : ${ ProductList }">
+			<td data-th-text="${ p.name }"></td>
+			<td data-th-text="${ p.price }"></td>
+			<td data-th-text="${ p.updatedPrice }"></td>
+		</tr>
+	</tbody>
 </table>
 <br>
-	<a class="button button-primary" href="/logout">Se déconnecter</a>
+
+	</div>
 </body>
 </html>

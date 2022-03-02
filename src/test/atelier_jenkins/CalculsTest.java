@@ -48,7 +48,7 @@ class CalculsTest {
 	@org.junit.jupiter.api.Test
 	void testMultiplier()
 	{
-		if(c1.multiplier() != 2)
+		if(c1.multiplier() != 8)
 		{
 			fail("Methode multiplier non conforme 2*1=2 ne fonctionne pas.");
 		}

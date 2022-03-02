@@ -49,7 +49,8 @@ class CalculsTest2 {
 	        String n = null;
 	        assertNull(n);
 	}
-
+	@ParameterizedTest(name="Addition numéro {index}: nombre1={0}, nombre2={1}, résultat attendu = {2}")
+	@MethodSource("chargerJeuDeTest")
 	void testAdditionner(int firstNumber, int secondNumber, int expectedResult) 
 	{
 		// Partie paramétrée
@@ -60,6 +61,8 @@ class CalculsTest2 {
 	        String n = null;
 	        assertNull(n);
 	}
+	@ParameterizedTest(name="Division numéro {index}: nombre1={0}, nombre2={1}, résultat attendu = {2}")
+	@MethodSource("chargerJeuDeTest")
 	void testDiviser(int firstNumber, int secondNumber, int expectedResult) 
 	{
 		// Partie paramétrée

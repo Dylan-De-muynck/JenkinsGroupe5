@@ -32,8 +32,8 @@ class CalculsTest {
 	void setUp() throws Exception 
 	{
 		c1 = new Calculs(1,2);
-		c2 = new Calculs(10,20);
-		c3 = new Calculs(100,200);
+		//c2 = new Calculs(10,20);
+		//c3 = new Calculs(100,200);
 	}
 
 	

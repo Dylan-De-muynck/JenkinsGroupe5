@@ -23,7 +23,7 @@ class CalculsTest {
 
 	private Calculs c1 = null;
 	private Calculs c2 = null;
-	//private Calculs c3 = null;
+	private Calculs c3 = null;
 	
 	/**
 	 * Initialise les valeurs avant chaque test 
@@ -72,27 +72,14 @@ class CalculsTest {
 	 */
 	@Test
 	void testDiviser() {
-		if(c2.diviser() != 0)
+		if(c1.diviser() != 0)
 		{
 			fail("Methode diviser non conforme 1 / 2 = 0 ne fonctionne pas.");
 		}
 		
-		assertEquals(c2.diviser(), 0);
+		assertEquals(c1.diviser(), 0);
 	}
 
-	/**
-	 * Test method for {@link Calculs#soustraire()}.
-	 */
-	/*@Test
-	void testSoustraire() {
-		if(c3.soustraire() != -1)
-		{
-			fail("Methode soustraire non conforme 1-2 = -1 ne fonctionne pas.");
-			
-		}
-		
-
-		assertEquals(c3.soustraire(), -1);
-	}*/
+	
 
 }

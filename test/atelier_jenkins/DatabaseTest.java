@@ -73,7 +73,7 @@ public class DatabaseTest {
 		
 		List<Product> productsT = test1.getProductList();
 		
-		assertEquals(productTest.getName(), productsT.get(0).getName());
+		assertEquals("product2", productsT.get(0).getName());
 
 	}
 

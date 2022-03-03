@@ -94,7 +94,7 @@ public class DatabaseTest {
 
 	}
 
-	@org.junit.Test
+	@Test
 	public void testProductListValues() throws URISyntaxException
 	{
 		//Permet de générer des requêtes HTTP

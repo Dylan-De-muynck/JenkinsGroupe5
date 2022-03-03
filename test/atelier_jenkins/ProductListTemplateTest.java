@@ -32,8 +32,6 @@ public class ProductListTemplateTest {
     int randomServerPort;
 
 
-
-
     /**
      * Initialise les valeurs avant chaque test
      */

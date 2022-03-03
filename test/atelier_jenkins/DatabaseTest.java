@@ -50,7 +50,7 @@ public class DatabaseTest {
 	 * Initialise les valeurs avant chaque test
 	 */
 	@BeforeEach // D�clencher cette m�thode avant l'ex�cution
-	void setUp() throws Exception
+	public void setUp() throws Exception
 	{
 		
 		productTest.setId(1);
@@ -66,14 +66,14 @@ public class DatabaseTest {
 	 * Test method for {@link Calculs#multiplier()}.
 	 */
 	@Test
-	void testSelectproduct()
+	public void testSelectproduct()
 	{
 		
 		when(test1.getProductList()).thenReturn(getProductL);
 		
 		List<Product> productsT = test1.getProductList();
 		
-		assertEquals("product2", productsT.get(0).getName());
+		assertEquals("product18", productsT.get(0).getName());
 
 	}
 

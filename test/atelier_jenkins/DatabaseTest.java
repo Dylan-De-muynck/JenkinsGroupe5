@@ -8,13 +8,10 @@ import main.java.com.atelier_jenkins.repository.ProductRepository;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-import java.lang.reflect.Array;
-import java.net.URI;
-import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.persistence.EntityManager;
+
 
 import org.junit.Assert;
 import org.junit.jupiter.api.BeforeEach;
@@ -91,27 +88,6 @@ public class DatabaseTest {
 		List<Product> productsT = test1.getProductList();
 		
 		assertEquals("product18", productsT.get(0).getName());
-
-	}
-
-	@Test
-	public void testProductListValues() throws URISyntaxException
-	{
-		//Permet de générer des requêtes HTTP
-		RestTemplate restTemplate = new RestTemplate();
-
-		//URL de notre endpoint
-		final String baseUrl = "http://localhost:" + randomServerPort + "/products";
-		URI uri = new URI(baseUrl);
-
-		//Fait un appel au endpoint grâce à l'instance de l'objet RestTemplate
-		ResponseEntity<String> result = restTemplate.getForEntity(uri, String.class);
-
-		//Test le code status de la requête
-		assertEquals(200, result.getStatusCodeValue());
-
-		//Test le retour de la requête
-		assertEquals(true, result.getBody().contains("ProductList"));
 
 	}
 

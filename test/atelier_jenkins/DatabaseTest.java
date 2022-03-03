@@ -108,10 +108,10 @@ public class DatabaseTest {
 		ResponseEntity<String> result = restTemplate.getForEntity(uri, String.class);
 
 		//Test le code status de la requête
-		Assert.assertEquals(200, result.getStatusCodeValue());
+		assertEquals(200, result.getStatusCodeValue());
 
 		//Test le retour de la requête
-		Assert.assertEquals(true, result.getBody().contains("ProductList"));
+		assertEquals(true, result.getBody().contains("ProductList"));
 
 	}
 

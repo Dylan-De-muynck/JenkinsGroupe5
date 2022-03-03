@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import main.java.com.atelier_jenkins.service.ProductService;
 
+import java.util.Arrays;
 import java.util.List;
 
 @Controller
@@ -28,6 +29,14 @@ public class ProductListController {
 	@GetMapping(path = "/products")
 	public String afficherListeProduits(@ModelAttribute("products") ProductDto product, Model model) {
 		List<Product> products = productService.getProductList();
+		System.out.println(Arrays.toString(products.toArray()));
+		for(int i = 0; i < products.size(); i++) {
+			System.out.print(products.get(0).getId());
+			System.out.print(products.get(0).getName());
+			System.out.print(products.get(0).getPrice());
+			System.out.print(" // ");
+        }
+		//System.out.print(products);
 		model.addAttribute("ProductList", getProductsWithMargin(products));
 		model.addAttribute("Margin", getConnectedCustomer().getContract().getMargin());
 		model.addAttribute("Customer", getConnectedCustomer().getUsername());

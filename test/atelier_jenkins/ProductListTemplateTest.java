@@ -3,6 +3,7 @@ package atelier_jenkins;
 import main.java.com.atelier_jenkins.modele.Product;
 import main.java.com.atelier_jenkins.service.ProductService;
 import org.junit.Assert;
+import org.junit.Ignore;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -55,6 +56,7 @@ public class ProductListTemplateTest {
      * Test {La liste des produits dans le back-end et dans le front-end}
      */
     @Test
+    @Ignore
     public void testProductListValues() throws URISyntaxException
     {
         //Permet de générer des requêtes HTTP

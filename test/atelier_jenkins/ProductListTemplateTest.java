@@ -162,7 +162,7 @@ public class ProductListTemplateTest {
     @WithUserDetails("customer1")
     @ParameterizedTest(name="Multiplication numéro {index}: nombre1={1}")
 	@MethodSource("chargerLesPrix")
-    public void testPriceCalculWithMargin(float testPrice, float expectedResult) throws Exception {
+    public void testPriceCalculWithMarginaze(float testPrice, float expectedResult) throws Exception {
         
         productTest.setPrice(testPrice);
         productTestList.add(productTest);

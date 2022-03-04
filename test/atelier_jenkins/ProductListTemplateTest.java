@@ -130,6 +130,7 @@ public class ProductListTemplateTest {
         Assert.assertEquals(true, result.getBody().contains("ProductList"));
 
     }
+    
     /**
      * Test {}
      */

@@ -55,7 +55,6 @@ public class ProductListTemplateTest {
     /**
      * Test {La liste des produits dans le back-end et dans le front-end}
      */
-    @Test
     @Ignore
     public void testProductListValues() throws URISyntaxException
     {

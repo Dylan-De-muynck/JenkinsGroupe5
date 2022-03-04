@@ -159,14 +159,12 @@ public class ProductListTemplateTest {
      */
     @Test
     @WithUserDetails("customer1")
-    @ParameterizedTest(name="Multiplication numéro {index}: nombre1={1}")
+    @ParameterizedTest(name="numéro {index}: prix sans marge={0} prix attendu={1}")
 	@MethodSource("chargerLesPrix")
     public void testPriceCalculWithMargin(float testPrice, float expectedResult) throws Exception {
         
         productTest.setPrice(testPrice);
         productTestList.add(productTest);
-        
-        controller.getConnectedCustomer().getContract().setMargin(5);
         
         Integer remise = controller.getConnectedCustomer().getContract().getMargin();
         

@@ -83,6 +83,9 @@ public class ProductListTemplateTest {
    
     Product productTest = new Product();
     
+    
+    
+    
 	 /*
 	int[] listId = {0, 1, 2, 3, 4};
    
@@ -96,15 +99,25 @@ public class ProductListTemplateTest {
     
     static Stream<Arguments> chargerLesPrix() throws Throwable 
     {
+    	Customer costumerTest = new Customer();
         
-        float[] listPrice = {487, 180, 254, 312, 222};
+        Contract contractTest = new Contract();
+        
+        costumerTest.setUserId(0);
+        costumerTest.setUsername("customerTest");
+        costumerTest.setPassword("test");
+        
+        contractTest.setId(0);
+        contractTest.setType("contractTest");
+        
+        float[] listPrice = {180, 397, 254, 312, 222};
     	
         return Stream.of(
-        		Arguments.of(listPrice[0], 260), 
-        		Arguments.of(listPrice[1], 560), 
-        		Arguments.of(listPrice[2], 750),
-        		Arguments.of(listPrice[3], 750),
-        		Arguments.of(listPrice[4], 750)
+        		Arguments.of(listPrice[0], 252, costumerTest, contractTest, 20), 
+        		Arguments.of(listPrice[1], 496.25f, costumerTest, contractTest, 5), 
+        		Arguments.of(listPrice[2], 750, costumerTest, contractTest, 10),
+        		Arguments.of(listPrice[3], 750, costumerTest, contractTest, 14),
+        		Arguments.of(listPrice[4], 750, costumerTest, contractTest, 5)
         );
     }
     
@@ -158,15 +171,18 @@ public class ProductListTemplateTest {
      * Test {Le calcul des marges}
      */
     @Test
-    @WithUserDetails("customer1")
     @ParameterizedTest(name="numéro {index}: prix sans marge={0} prix attendu={1}")
 	@MethodSource("chargerLesPrix")
-    public void testPriceCalculWithMargin(float testPrice, float expectedResult) throws Exception {
+    public void testPriceCalculWithMargin(float testPrice, float expectedResult, Customer customerTest, Contract contractTest, Integer margin) throws Exception {
         
         productTest.setPrice(testPrice);
         productTestList.add(productTest);
         
-        Integer remise = controller.getConnectedCustomer().getContract().getMargin();
+        contractTest.setMargin(margin);
+        
+        customerTest.setContract(contractTest);
+        
+        Integer remise = customerTest.getContract().getMargin();
         
         List<Product> testProductsWithMargin = productService.getProductsWithMargin(productTestList, remise);
 

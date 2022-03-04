@@ -151,6 +151,7 @@ public class ProductListTemplateTest {
                 .andReturn();
 
         Assert.assertEquals(200, result.getResponse().getStatus());          
+        
     }
     
     /**

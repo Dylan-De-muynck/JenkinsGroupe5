@@ -44,10 +44,6 @@ import org.springframework.web.client.RestTemplate;
  */
 
 @ExtendWith(MockitoExtension.class)
-@RunWith(SpringRunner.class)
-@SpringBootApplication
-@SpringBootTest(webEnvironment= SpringBootTest.WebEnvironment.RANDOM_PORT,
-		classes={main.java.com.atelier_jenkins.repository.ProductRepository.class})
 public class DatabaseTest {
 
 	@LocalServerPort
@@ -80,7 +76,7 @@ public class DatabaseTest {
 	/**
 	 * Test method for {@link Calculs#multiplier()}.
 	 */
-	@Ignore
+	@Test
 	public void testSelectproduct()
 	{
 		

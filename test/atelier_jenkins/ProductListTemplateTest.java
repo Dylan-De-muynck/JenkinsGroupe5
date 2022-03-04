@@ -74,28 +74,11 @@ public class ProductListTemplateTest {
     
     @Autowired
     private WebApplicationContext webApplicationContext;
-
-
-   
     
     private List<Product> productTestList = new ArrayList<Product>();
     
-   
-    Product productTest = new Product();
+    private Product productTest = new Product();
     
-    
-    
-    
-	 /*
-	int[] listId = {0, 1, 2, 3, 4};
-   
-   String[] listName = {"product1", "product2", "product3", "product4", "product5"};*/
-    
-    @BeforeEach // D�clencher cette m�thode avant l'ex�cution
-	void setUp() throws Exception
-	{
-    	
-	}
     
     static Stream<Arguments> chargerLesPrix() throws Throwable 
     {
@@ -110,14 +93,16 @@ public class ProductListTemplateTest {
         contractTest.setId(0);
         contractTest.setType("contractTest");
         
-        float[] listPrice = {180, 397, 254, 312, 222};
+        float[] listPrice = {180f, 397f, 254f, 312f, 222f};
     	
+        float[] listPriceResult = {252f, 496.25f, 750f, 750f, 750f};
+        
         return Stream.of(
-        		Arguments.of(listPrice[0], 252, costumerTest, contractTest, 20), 
-        		Arguments.of(listPrice[1], 496.25f, costumerTest, contractTest, 5), 
-        		Arguments.of(listPrice[2], 750, costumerTest, contractTest, 10),
-        		Arguments.of(listPrice[3], 750, costumerTest, contractTest, 14),
-        		Arguments.of(listPrice[4], 750, costumerTest, contractTest, 5)
+        		Arguments.of(listPrice[0], listPriceResult[0], costumerTest, contractTest, 20), 
+        		Arguments.of(listPrice[1], listPriceResult[1], costumerTest, contractTest, 5), 
+        		Arguments.of(listPrice[2], listPriceResult[2], costumerTest, contractTest, 10),
+        		Arguments.of(listPrice[3], listPriceResult[3], costumerTest, contractTest, 14),
+        		Arguments.of(listPrice[4], listPriceResult[4], costumerTest, contractTest, 5)
         );
     }
     
@@ -173,7 +158,7 @@ public class ProductListTemplateTest {
     @Test
     @ParameterizedTest(name="numéro {index}: prix sans marge={0} prix attendu={1}")
 	@MethodSource("chargerLesPrix")
-    public void testPriceCalculWithMargin(float testPrice, float expectedResult, Customer customerTest, Contract contractTest, Integer margin) throws Exception {
+    public void testPriceCalculWithMargin(float testPrice, float expectedResult, Customer customerTest, Contract contractTest, Integer margin) {
         
         productTest.setPrice(testPrice);
         productTestList.add(productTest);
@@ -189,17 +174,6 @@ public class ProductListTemplateTest {
         float testpriceMargin = testProductsWithMargin.get(0).getUpdatedPrice();
         
         assertEquals(testpriceMargin, expectedResult, " test en echec pour " + testpriceMargin + " != " + expectedResult);
-/*
-        //Je récupére tous les produits provenant de la base de données
-        List<Product> productList = productService.getProductList();
-
-        //Je récupére toutes les balises html de notre front affichant les prix des produits
-        String stringResponse = result.getResponse().getContentAsString();
-
-        boolean properlyBondedFront = getPresenceofOurPrice(stringResponse, productList);
-
-        Assert.assertEquals(true, properlyBondedFront);
-        Assert.assertEquals(200, result.getResponse().getStatus());*/
 
 
     }

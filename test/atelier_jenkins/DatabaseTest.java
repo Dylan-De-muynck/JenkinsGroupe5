@@ -44,6 +44,7 @@ import org.springframework.web.client.RestTemplate;
  */
 
 @ExtendWith(MockitoExtension.class)
+//@RunWith(SpringRunner.class)
 public class DatabaseTest {
 
 	@LocalServerPort

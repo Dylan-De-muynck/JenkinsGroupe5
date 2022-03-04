@@ -28,26 +28,23 @@ public class ProductListController {
 	// MVC : Controller
 	@GetMapping(path = "/products")
 	public String afficherListeProduits(@ModelAttribute("products") ProductDto product, Model model) {
-		List<Product> products = productService.getProductList();
-		System.out.println(Arrays.toString(products.toArray()));
-		for(int i = 0; i < products.size(); i++) {
-			System.out.print(products.get(0).getId());
-			System.out.print(products.get(0).getName());
-			System.out.print(products.get(0).getPrice());
-			System.out.print(" // ");
-        }
-		//System.out.print(products);
-		model.addAttribute("ProductList", getProductsWithMargin(products));
-		model.addAttribute("Margin", getConnectedCustomer().getContract().getMargin());
-		model.addAttribute("Customer", getConnectedCustomer().getUsername());
-
+		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+		if (!(authentication instanceof AnonymousAuthenticationToken)) {
+			Integer remise = getConnectedCustomer().getContract().getMargin();
+			List<Product> products = productService.getProductList(remise);
+			
+			//System.out.print(products);
+			model.addAttribute("ProductList", products);
+			model.addAttribute("Margin", getConnectedCustomer().getContract().getMargin());
+			model.addAttribute("Customer", getConnectedCustomer().getUsername());
+		
+		}
 		// return la page html (La vue)
 		return "ProductList";
 	}
-
-	private List<Product> getProductsWithMargin(List<Product> products){
-		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-		if (!(authentication instanceof AnonymousAuthenticationToken)) {
+/*
+	public List<Product> getProductsWithMargin(List<Product> products){
+		
 			Integer remise = getConnectedCustomer().getContract().getMargin();
 			for(Product p : products){
 				//Ajout de la marge
@@ -56,10 +53,10 @@ public class ProductListController {
 				Float pdvApresRemiseEtTva = Float.valueOf(pdvApresRemise + (p.getPrice() * 20) / 100);
 				p.setUpdatedPrice(pdvApresRemiseEtTva);
 			}
-		}
+		
 		return products;
 	}
-
+*/
 	public Customer getConnectedCustomer(){
 		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 		if (!(authentication instanceof AnonymousAuthenticationToken)) {
